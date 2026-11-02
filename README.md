@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# @girish2003-hub/my-button
 
-## Getting Started
+A simple, lightweight React button component that works in Next.js (App Router and Pages Router) and any React 18+ app.
 
-First, run the development server:
+## Installation
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install @girish2003-hub/my-button
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+`react` and `react-dom` (v18 or newer) are peer dependencies.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Usage
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Import the stylesheet once, usually in your root layout:
 
-## Learn More
+```tsx
+// app/layout.tsx
+import '@girish2003-hub/my-button/styles.css';
+```
 
-To learn more about Next.js, take a look at the following resources:
+Then use the component:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```tsx
+import { Button } from '@girish2003-hub/my-button';
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+export default function Home() {
+  return (
+    <Button variant="primary" size="lg">
+      Click me
+    </Button>
+  );
+}
+```
 
-## Deploy on Vercel
+If you pass event handlers such as `onClick`, use the button inside a Client Component:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```tsx
+'use client';
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+import { Button } from '@girish2003-hub/my-button';
+
+export function SaveButton() {
+  return <Button onClick={() => alert('Saved!')}>Save</Button>;
+}
+```
+
+## Props
+
+`Button` accepts all standard `<button>` attributes plus:
+
+| Prop      | Type                                  | Default     |
+| --------- | ------------------------------------- | ----------- |
+| `variant` | `"primary" \| "secondary" \| "ghost"` | `"primary"` |
+| `size`    | `"sm" \| "md" \| "lg"`                | `"md"`      |
+
+The component forwards its `ref` to the underlying `<button>` element.
+
+## Development
+
+```bash
+npm install
+npm run dev     # rebuild on change
+npm run build   # production build into dist/
+```
+
+## License
+
+MIT © Girish Khedikar

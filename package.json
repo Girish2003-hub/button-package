@@ -1,6 +1,24 @@
 {
-  "name": "my-button",
+  "name": "@girish2003-hub/button",
   "version": "0.1.0",
+  "description": "A simple React button component for Next.js and React apps",
+  "license": "MIT",
+  "author": "Girish Khedikar",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Girish2003-hub/my-button.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Girish2003-hub/my-button/issues"
+  },
+  "homepage": "https://github.com/Girish2003-hub/my-button#readme",
+  "keywords": [
+    "react",
+    "nextjs",
+    "button",
+    "component",
+    "ui"
+  ],
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -18,9 +36,13 @@
   "sideEffects": [
     "*.css"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsup",
-    "dev": "tsup --watch"
+    "dev": "tsup --watch",
+    "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
     "react": ">=18",
